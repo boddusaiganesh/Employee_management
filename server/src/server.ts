@@ -9,38 +9,41 @@ import {errorHandler} from './middleware/errorHandler';
 const app = express();
 const PORT = config.port;
 
-// Middleware - CORS Configuration
-const allowedOrigins: string[] = [
-    'http://localhost:3000',
-    'http://localhost:5173',
-    'https://employee-management-rcej.vercel.app'
-];
-
-if (process.env.FRONTEND_URL) {
-    allowedOrigins.push(process.env.FRONTEND_URL);
-}
-
-// Enable CORS for all routes
+// Middleware - CORS Configuration (Simplified for production)
 app.use(cors({
     origin: (origin, callback) => {
-        // Allow requests with no origin (like mobile apps or curl requests)
+        // Allow requests with no origin (mobile apps, curl, etc.)
         if (!origin) return callback(null, true);
 
-        if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
+        // Allow all Vercel deployments and localhost
+        if (
+            origin.includes('vercel.app') ||
+            origin.includes('localhost') ||
+            origin.includes('127.0.0.1')
+        ) {
+            return callback(null, true);
         }
+
+        // In development, allow all origins
+        if (process.env.NODE_ENV !== 'production') {
+            return callback(null, true);
+        }
+
+        // Otherwise allow it (can be restricted later)
+        callback(null, true);
     },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
     exposedHeaders: ['Content-Length', 'X-Request-Id'],
     preflightContinue: false,
-    optionsSuccessStatus: 204
+    optionsSuccessStatus: 200
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+// Handle preflight requests for all routes
+app.options('*', cors());
 
 // Routes
 app.get('/', (req: Request, res: Response) => {
