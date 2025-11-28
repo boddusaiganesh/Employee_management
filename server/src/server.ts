@@ -10,12 +10,15 @@ const app = express();
 const PORT = config.port;
 
 // Middleware
-const allowedOrigins = [
+const allowedOrigins: string[] = [
     'http://localhost:3000',
     'http://localhost:5173',
-    'https://employee-management-rcej.vercel.app',
-    process.env.FRONTEND_URL
-].filter(Boolean);
+    'https://employee-management-rcej.vercel.app'
+];
+
+if (process.env.FRONTEND_URL) {
+    allowedOrigins.push(process.env.FRONTEND_URL);
+}
 
 app.use(cors({
     origin: process.env.NODE_ENV === 'production'
