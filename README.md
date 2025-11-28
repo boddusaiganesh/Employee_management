@@ -1,817 +1,204 @@
-# 🚀 Employee Management System - Full-Stack Application
+# 🚀 Employee Management System
 
 > **Assessment Submission for Prou Australia**  
 > **All Three Tracks Completed**: Frontend + Backend + Full-Stack Integration
 
 A modern, production-ready **Employee Management System** built with **React**, **Node.js**, **Express**, **TypeScript
-**, **Prisma ORM**, and **PostgreSQL**. This application demonstrates full-stack development capabilities with
-enterprise-grade features including authentication, CRUD operations, real-time updates, drag-and-drop task management,
-data visualization, and export/import functionality.
+**, **Prisma ORM**, and **PostgreSQL**.
 
 ## 🌐 Live Demo
 
-**🎯 Frontend (Vercel):** https://employee-management-rcej.vercel.app
-
-**🎯 Backend API (Render):** https://employee-management-api-kvlr.onrender.com
+- **Frontend:** https://employee-management-rcej.vercel.app
+- **Backend API:** https://employee-management-api-kvlr.onrender.com
 
 **Demo Accounts:**
 
-- **Admin:** `admin@example.com` / `9392359Abc@` (Full Control)
-- **User:** `user@example.com` / `9392359Abc@` (View Only)
+- **Admin:** `admin@example.com` / `9392359Abc@`
+- **User:** `user@example.com` / `9392359Abc@`
 
-⚠️ **Note:** Backend may take 30-60 seconds to wake up on first request (free tier spins down after inactivity).
-
----
+⚠️ Backend may take 30-60 seconds to wake up on first request (free tier).
 
 ## 📌 Assessment Tracks Completion
 
-This project successfully completes **ALL THREE TRACKS**:
+### ✅ Track 1: Frontend Development
 
-### ✅ Track 1: Frontend Development (Mock Data)
-
-- **Status:** ✅ COMPLETED
-- Fully functional, responsive React application
-- Modern UI/UX with TailwindCSS and Framer Motion
-- Interactive components with state management (Zustand)
-- Mock data simulation capabilities
+- Responsive React application with modern UI/UX
+- State management with Zustand
 - Advanced features: Search, filters, pagination, drag-and-drop
 
-### ✅ Track 2: Backend Development (API + Database)
+### ✅ Track 2: Backend Development
 
-- **Status:** ✅ COMPLETED
 - RESTful API with Express.js and TypeScript
 - PostgreSQL database with Prisma ORM
-- Complete CRUD operations for Employees and Tasks
 - JWT authentication and role-based authorization
-- Advanced features: Pagination, filtering, statistics endpoints
 
 ### ✅ Track 3: Full-Stack Integration
 
-- **Status:** ✅ COMPLETED
 - Seamless frontend-backend integration
-- Real-time data synchronization
-- Authentication flow with protected routes
-- Complete end-to-end functionality
-- Production-ready deployment configuration
-
----
+- End-to-end functionality with production deployment
 
 ## ⚡ Quick Start
 
 ```bash
-# Clone the repository
-git clone <repository-url>
+# Clone repository
+git clone https://github.com/boddusaiganesh/Employee_management.git
 cd EmployeeFullStack
 
-# Install dependencies
+# Install all dependencies
 npm install
 
-# Setup and run (will install dependencies, migrate DB, seed data, and start servers)
+# Run development servers
 npm run dev
 
-# Access the application
-# Frontend: http://localhost:3000
-# Backend: http://localhost:5000
-
-# Demo Accounts:
-# Admin: admin@example.com / 9392359Abc@
-# User: user@example.com / 9392359Abc@
+# Access: http://localhost:3000
 ```
 
 **Prerequisites:** Node.js v18+, PostgreSQL v12+
 
----
-
-## 📋 Table of Contents
-
-- [Assessment Tracks Completion](#-assessment-tracks-completion)
-- [Quick Start](#-quick-start)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
-- [API Documentation](#-api-documentation)
-- [Demo Accounts](#-demo-accounts)
-- [Bonus Features Implemented](#-bonus-features-implemented)
-- [Future Enhancements](#-future-enhancements)
-
----
-
 ## ✨ Features
 
-### 🔐 Authentication & Authorization
-
-- **JWT-based authentication** with secure token management
-- **Role-based access control** (Admin & User roles)
-- **Password hashing** using bcryptjs
-- Auto-redirect on token expiration
-- Protected routes with middleware
-
-### 👥 Employee Management
-
-- **CRUD operations** for employee records
-- **Advanced search** with debouncing (300ms delay)
-- **Multi-filter support** (department, status)
-- **Grid & List view** toggle
-- **Pagination** with navigation controls
-- **Export to CSV** and **PDF reports**
-- **Bulk import** via CSV upload
-- **Real-time validation** with error feedback
-- Beautiful gradient cards with animations
-
-### 📋 Task Management
-
-- **Drag-and-drop Kanban board** (4 columns: Pending, In Progress, Completed, Cancelled)
-- **Real-time status updates** via drag-and-drop
-- **Priority levels** (Low, Medium, High, Urgent)
-- **Task assignment** to employees
-- **Due date tracking** with overdue indicators
-- **Export to CSV** and **PDF reports**
-- **Filter by status & priority**
-- Color-coded task cards
-
-### 📊 Dashboard & Analytics
-
-- **Real-time statistics** display
-- **Interactive charts** (Bar charts, Pie charts)
-- **Department distribution** visualization
-- **Task status breakdown**
-- **Priority distribution** cards
-- **Generate PDF reports** with comprehensive data
-- Animated stat cards with trend indicators
-
-### 🎨 UI/UX Features
-
-- **Modern gradient design** with glass-morphism effects
-- **Framer Motion animations** for smooth transitions
-- **Responsive design** (mobile, tablet, desktop)
-- **Toast notifications** for user feedback
-- **Loading states** with skeleton screens
-- **Error boundaries** for graceful error handling
-- **Beautiful landing page** with feature highlights
-- **Lucide React icons** for consistent iconography
-
----
+- **Authentication:** JWT-based with role-based access control (Admin/User)
+- **Employee Management:** CRUD operations, search, filters, pagination, CSV/PDF export
+- **Task Management:** Drag-and-drop Kanban board, priority levels, due date tracking
+- **Dashboard:** Real-time statistics, interactive charts (Bar/Pie), data visualization
+- **UI/UX:** Responsive design, animations, toast notifications, skeleton loaders
 
 ## 🛠 Tech Stack
 
-### Frontend
+**Frontend:** React 18, TypeScript, Vite, TailwindCSS, Framer Motion, Zustand, Axios, Recharts
 
-- **React 18** - UI library
-- **TypeScript** - Type safety
-- **Vite** - Build tool & dev server
-- **TailwindCSS** - Utility-first CSS
-- **Framer Motion** - Animation library
-- **React Router v6** - Client-side routing
-- **Zustand** - State management
-- **Axios** - HTTP client
-- **Recharts** - Data visualization
-- **@hello-pangea/dnd** - Drag and drop
-- **React Hot Toast** - Notifications
-- **jsPDF** - PDF generation
-- **PapaParse** - CSV parsing
+**Backend:** Node.js, Express.js, TypeScript, Prisma ORM, PostgreSQL, JWT, bcryptjs
 
-### Backend
-
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web framework
-- **TypeScript** - Type safety
-- **Prisma ORM** - Database toolkit
-- **PostgreSQL** - Database
-- **JWT** - Authentication tokens
-- **bcryptjs** - Password hashing
-- **CORS** - Cross-origin resource sharing
-- **dotenv** - Environment variables
-
-### Development Tools
-
-- **tsx** - TypeScript execution
-- **ESLint** - Code linting
-- **PostCSS** - CSS processing
-- **Concurrently** - Run multiple commands
-
----
-
-## 📸 Screenshots
-
-### Landing Page
-
-![Landing Page](screenshots/landing.png)
-*Beautiful gradient landing page with feature highlights*
-
-### Login/Register
-
-![Login](screenshots/login.png)
-*Modern authentication with demo account buttons*
-
-### Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-*Real-time analytics with interactive charts*
-
-### Employee Management
-
-![Employees](screenshots/employees.png)
-*Grid view with search, filters, and export options*
-
-### Kanban Board
-
-![Tasks](screenshots/tasks.png)
-*Drag-and-drop task management with color-coded priorities*
-
----
-
-## 🚀 Getting Started
+## 🚀 Setup Instructions
 
 ### Prerequisites
 
-- **Node.js** (v18 or higher)
-- **npm** or **yarn**
-- **PostgreSQL** (v12 or higher)
-- **Git**
+- Node.js v18+
+- PostgreSQL v12+
 
-### Installation
+### Installation Steps
 
-#### Option 1: Automated Setup (Recommended)
-
-**Windows (PowerShell):**
-
-```powershell
-.\setup.ps1
-```
-
-**Linux/Mac:**
+1. **Clone and Install**
 
 ```bash
-chmod +x setup.sh
-./setup.sh
-```
-
-#### Option 2: Manual Setup
-
-1. **Clone the repository**
-
-```bash
-git clone <repository-url>
+git clone https://github.com/boddusaiganesh/Employee_management.git
 cd EmployeeFullStack
-```
-
-2. **Install root dependencies**
-
-```bash
 npm install
 ```
 
-3. **Setup Backend**
+2. **Setup Backend**
 
 ```bash
 cd server
 npm install
 npx prisma generate
-npx prisma migrate dev --name init
+npx prisma migrate dev
 npm run prisma:seed
-cd ..
 ```
 
-4. **Setup Frontend**
-
-```bash
-cd client
-npm install
-cd ..
-```
-
-5. **Configure Environment Variables**
+3. **Configure Environment**
 
 Create `server/.env`:
 
 ```env
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/employee_db?schema=public"
 PORT=5000
-JWT_SECRET=your-secret-key-change-in-production
+JWT_SECRET=your-secret-key-here
 NODE_ENV=development
 ```
 
-**Note:** Make sure PostgreSQL is installed and running on your system. Update the connection string with your
-PostgreSQL credentials.
-
-### Running the Application
-
-#### Development Mode
-
-**Run both frontend and backend:**
+4. **Run Application**
 
 ```bash
 npm run dev
 ```
 
-**Or run separately:**
-
-```bash
-# Terminal 1 - Backend (http://localhost:5000)
-npm run dev:server
-
-# Terminal 2 - Frontend (http://localhost:3000)
-npm run dev:client
-```
-
-#### Production Build
-
-```bash
-npm run build
-npm start
-```
-
-### Access the Application
-
-- **Frontend:** http://localhost:3000
-- **Backend API:** http://localhost:5000
-- **API Docs:** http://localhost:5000/api
-
----
+Access at: http://localhost:3000
 
 ## 📁 Project Structure
 
 ```
 EmployeeFullStack/
-├── client/                    # Frontend React application
-│   ├── public/               # Static assets
+├── client/              # Frontend (React + TypeScript)
 │   ├── src/
-│   │   ├── components/       # Reusable components
-│   │   │   ├── ErrorBoundary.tsx
-│   │   │   ├── EmployeeModal.tsx
-│   │   │   ├── TaskModal.tsx
-│   │   │   ├── ImportModal.tsx
-│   │   │   ├── Pagination.tsx
-│   │   │   ├── SkeletonLoader.tsx
-│   │   │   └── Layout.tsx
-│   │   ├── hooks/            # Custom React hooks
-│   │   │   └── useDebounce.ts
-│   │   ├── lib/              # Utility functions
-│   │   │   ├── api.ts        # Axios configuration
-│   │   │   ├── toast.ts      # Toast notifications
-│   │   │   ├── validation.ts # Form validation
-│   │   │   ├── export.ts     # CSV export/import
-│   │   │   └── pdf.ts        # PDF generation
-│   │   ├── pages/            # Page components
-│   │   │   ├── Welcome.tsx
-│   │   │   ├── LoginNew.tsx
-│   │   │   ├── DashboardNew.tsx
-│   │   │   ├── EmployeesNew.tsx
-│   │   │   ├── EmployeeDetails.tsx
-│   │   │   └── TasksNew.tsx
-│   │   ├── store/            # State management
-│   │   │   └── authStore.ts
-│   │   ├── types/            # TypeScript types
-│   │   │   └── index.ts
-│   │   ├── App.tsx           # Root component
-│   │   ├── main.tsx          # Entry point
-│   │   └── index.css         # Global styles
-│   ├── package.json
-│   ├── vite.config.ts
-│   ├── tailwind.config.js
-│   └── tsconfig.json
+│   │   ├── components/  # Reusable UI components
+│   │   ├── pages/       # Page components
+│   │   ├── lib/         # Utilities (API, validation, export)
+│   │   ├── store/       # State management
+│   │   └── types/       # TypeScript types
+│   └── package.json
 │
-├── server/                    # Backend Node.js application
-│   ├── prisma/
-│   │   ├── schema.prisma     # Database schema
-│   │   └── migrations/       # Database migrations
+├── server/              # Backend (Node.js + Express)
+│   ├── prisma/          # Database schema & migrations
 │   ├── src/
-│   │   ├── config/           # Configuration files
-│   │   │   └── env.ts
-│   │   ├── controllers/      # Request handlers
-│   │   │   ├── auth.controller.ts
-│   │   │   ├── employee.controller.ts
-│   │   │   └── task.controller.ts
-│   │   ├── middleware/       # Express middleware
-│   │   │   ├── auth.middleware.ts
-│   │   │   └── errorHandler.ts
-│   │   ├── routes/           # API routes
-│   │   │   ├── auth.routes.ts
-│   │   │   ├── employee.routes.ts
-│   │   │   └── task.routes.ts
-│   │   ├── lib/              # Utilities
-│   │   │   └── prisma.ts
-│   │   ├── seed.ts           # Database seeding
-│   │   └── server.ts         # Server entry point
-│   ├── package.json
-│   └── tsconfig.json
+│   │   ├── controllers/ # Request handlers
+│   │   ├── routes/      # API routes
+│   │   ├── middleware/  # Auth & error handling
+│   │   └── server.ts    # Entry point
+│   └── package.json
 │
-├── package.json               # Root package.json
-├── setup.ps1                  # Windows setup script
-├── setup.sh                   # Linux/Mac setup script
-└── README.md                  # This file
+└── package.json         # Root scripts
 ```
 
----
+## 🔌 API Endpoints
 
-## 🔌 API Documentation
+**Base URL:** `http://localhost:5000/api`
 
-### Base URL
+### Authentication
 
-```
-http://localhost:5000/api
-```
+- `POST /auth/register` - Register new user
+- `POST /auth/login` - Login user
+- `GET /auth/profile` - Get user profile (requires auth)
 
-### Authentication Endpoints
+### Employees
 
-#### Register User
+- `GET /employees` - List all employees (pagination, search, filters)
+- `GET /employees/:id` - Get employee details
+- `POST /employees` - Create employee (admin only)
+- `PUT /employees/:id` - Update employee (admin only)
+- `DELETE /employees/:id` - Delete employee (admin only)
+- `GET /employees/stats` - Get statistics
 
-```http
-POST /auth/register
-Content-Type: application/json
+### Tasks
 
-{
-  "email": "user@example.com",
-  "password": "password123",
-  "name": "John Doe",
-  "role": "user"
-}
-```
+- `GET /tasks` - List all tasks (pagination, filters)
+- `GET /tasks/:id` - Get task details
+- `POST /tasks` - Create task (admin only)
+- `PUT /tasks/:id` - Update task (admin only)
+- `DELETE /tasks/:id` - Delete task (admin only)
+- `GET /tasks/stats` - Get statistics
 
-#### Login
 
-```http
-POST /auth/login
-Content-Type: application/json
 
-{
-  "email": "user@example.com",
-  "password": "password123"
-}
-```
+## 🎁 Bonus Features
 
-#### Get Profile
+✅ **All Three Tracks Completed** - Frontend + Backend + Full-Stack Integration
 
-```http
-GET /auth/profile
-Authorization: Bearer <token>
-```
+✅ **Deployment** - Live demo on Vercel (Frontend) + Render (Backend)
 
-### Employee Endpoints
+✅ **Authentication** - JWT-based with role-based access control
 
-#### Get All Employees
+✅ **Advanced UI** - Drag-and-drop Kanban, animations, responsive design
 
-```http
-GET /employees?page=1&limit=10&search=john&department=Engineering&status=active
-Authorization: Bearer <token>
-```
+✅ **Data Visualization** - Interactive charts, real-time statistics
 
-#### Get Employee by ID
+✅ **Creative Features** - CSV/PDF export, bulk import, debounced search
 
-```http
-GET /employees/:id
-Authorization: Bearer <token>
-```
+## 📝 Assumptions
 
-#### Create Employee (Admin Only)
+- PostgreSQL database with proper configuration
+- JWT tokens expire after 7 days
+- Admin role required for Create/Update/Delete operations
+- CSV import expects specific column headers
+- Pagination defaults to 10 items per page
 
-```http
-POST /employees
-Authorization: Bearer <token>
-Content-Type: application/json
+## 👨‍💻 Submission Details
 
-{
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": "john.doe@company.com",
-  "phone": "+1234567890",
-  "department": "Engineering",
-  "position": "Software Engineer",
-  "salary": 75000,
-  "hireDate": "2024-01-15",
-  "status": "active"
-}
-```
+**Developed for:** Prou Australia Assessment  
+**Tracks Completed:** All 3 (Frontend + Backend + Full-Stack)  
+**GitHub:** https://github.com/boddusaiganesh/Employee_management
 
-#### Update Employee (Admin Only)
-
-```http
-PUT /employees/:id
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "salary": 80000,
-  "position": "Senior Software Engineer"
-}
-```
-
-#### Delete Employee (Admin Only)
-
-```http
-DELETE /employees/:id
-Authorization: Bearer <token>
-```
-
-#### Get Employee Statistics
-
-```http
-GET /employees/stats
-Authorization: Bearer <token>
-```
-
-### Task Endpoints
-
-#### Get All Tasks
-
-```http
-GET /tasks?page=1&limit=10&status=pending&priority=high
-Authorization: Bearer <token>
-```
-
-#### Get Task by ID
-
-```http
-GET /tasks/:id
-Authorization: Bearer <token>
-```
-
-#### Create Task (Admin Only)
-
-```http
-POST /tasks
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "title": "Implement user authentication",
-  "description": "Add JWT-based auth",
-  "status": "pending",
-  "priority": "high",
-  "dueDate": "2024-02-15",
-  "employeeId": "employee-uuid"
-}
-```
-
-#### Update Task (Admin Only)
-
-```http
-PUT /tasks/:id
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "status": "in-progress"
-}
-```
-
-#### Delete Task (Admin Only)
-
-```http
-DELETE /tasks/:id
-Authorization: Bearer <token>
-```
-
-#### Get Task Statistics
-
-```http
-GET /tasks/stats
-Authorization: Bearer <token>
-```
-
----
-
-## 🔑 Demo Accounts
-
-The application comes pre-seeded with demo accounts:
-
-### Administrator Account
-
-- **Email:** `admin@example.com`
-- **Password:** `9392359Abc@`
-- **Permissions:** Full access (Create, Read, Update, Delete)
-
-### Regular User Account
-
-- **Email:** `user@example.com`
-- **Password:** `9392359Abc@`
-- **Permissions:** Read-only access
-
-### Demo Employees
-
-The database is pre-populated with 8 sample employees across different departments:
-
-- Engineering
-- Marketing
-- Sales
-- HR
-- Finance
-- Design
-
-### Demo Tasks
-
-10 sample tasks with varying statuses and priorities
-
----
-
-## 🎁 Bonus Features Implemented
-
-### ✨ Assessment Bonus Points Achieved:
-
-✅ **All Three Tracks Completed**
-
-- ✅ Track 1: Frontend (React with mock data simulation capabilities)
-- ✅ Track 2: Backend (RESTful API with PostgreSQL database)
-- ✅ Track 3: Full-Stack (Seamless integration of all components)
-
-✅ **Advanced Authentication & Authorization**
-
-- JWT-based authentication with secure token management
-- Role-based access control (Admin vs User roles)
-- Password hashing with bcryptjs (10 rounds)
-- Protected routes and middleware
-- Auto-logout on token expiration
-
-✅ **Advanced UI/UX Features**
-
-- Framer Motion animations throughout
-- Toast notifications for user feedback
-- Skeleton loaders for better perceived performance
-- Error boundaries for graceful error handling
-- Fully responsive design (mobile, tablet, desktop)
-- Grid & List view toggle
-- Dark gradient designs with modern aesthetics
-- Interactive hover effects and transitions
-
-✅ **Data Visualization & Analytics**
-
-- Interactive charts using Recharts (Bar & Pie charts)
-- Real-time statistics dashboard
-- Department distribution visualization
-- Task status and priority breakdown
-- Color-coded indicators for quick insights
-- Trend indicators with animations
-
-✅ **Creative Features**
-
-- **Drag-and-drop Kanban board** for task management
-- **CSV Import/Export** functionality
-- **PDF Report Generation** with custom styling
-- **Debounced search** (300ms) for performance
-- **Real-time filtering** with multiple criteria
-- **Pagination** with dynamic controls
-- **Bulk operations** via CSV import
-
-✅ **Code Quality & Best Practices**
-
-- TypeScript throughout for type safety
-- Clean, modular code structure
-- Separation of concerns (MVC-like pattern)
-- Reusable components and custom hooks
-- Proper error handling on both frontend and backend
-- Environment variable management
-- Database migrations for version control
-- API request/response interceptors
-
-✅ **Documentation**
-
-- Comprehensive README with setup instructions
-- API documentation with examples
-- Code comments where necessary
-- Clear project structure
-- Demo accounts provided
-
----
-
-## 🔮 Future Enhancements
-
-- [ ] Deploy to cloud (Vercel + Render/Railway)
-- [ ] Add email notifications
-- [ ] Implement forgot password functionality
-- [ ] Add file upload for employee avatars
-- [ ] Real-time updates with WebSockets
-- [ ] Advanced analytics dashboard
-- [ ] Dark mode toggle
-- [ ] Multi-language support (i18n)
-- [ ] Unit and integration tests
-- [ ] CI/CD pipeline
-- [ ] Docker containerization
-- [ ] API rate limiting
-- [ ] Comprehensive logging (Winston)
-
----
-
-## 📝 Notes & Assumptions
-
-### Assumptions
-
-1. PostgreSQL is used as the database
-2. JWT tokens expire after 7 days
-3. Pagination defaults to 10 items per page (configurable)
-4. CSV import expects specific column headers
-5. Admin role is required for Create, Update, Delete operations
-
-### Design Decisions
-
-1. **Zustand over Redux** - Lighter state management for this scale
-2. **Prisma ORM** - Type-safe database access with great DX
-3. **TailwindCSS** - Rapid UI development with consistency
-4. **Monorepo structure** - Easy to manage both frontend and backend
-5. **JWT in localStorage** - Simple auth (can be moved to httpOnly cookies for better security)
-
-### Known Limitations
-
-1. File uploads not implemented (avatar field exists in schema)
-2. Forgot password requires email service integration
-3. No real-time collaboration features
-
----
-
-## 📄 License
-
-This project is developed as part of a job application assessment.
-
----
-
-## 👨‍💻 Author & Submission Details
-
-**Developed for Prou Australia Assessment**
-
-**Submission Date:** December 2024
-
-**Tracks Completed:** All 3 (Frontend + Backend + Full-Stack)
-
-**GitHub Repository:** [Public - Available for Review]
-
-**Tech Stack:**
-
-- **Frontend:** React 18, TypeScript, TailwindCSS, Framer Motion, Zustand
-- **Backend:** Node.js, Express, TypeScript, Prisma ORM
-- **Database:** PostgreSQL
-- **Additional:** JWT Auth, PDF Generation, CSV Import/Export, Charts
-
-**Key Highlights:**
-
-- ✅ 100% TypeScript - Full type safety
-- ✅ JWT Authentication with role-based access
-- ✅ Drag-and-drop Kanban board
-- ✅ Real-time data visualization
-- ✅ CSV/PDF export functionality
-- ✅ Responsive design for all devices
-- ✅ Error boundaries and loading states
-- ✅ Production-ready code structure
-
----
-
-## 🙏 Acknowledgments
-
-- React Team for React 18
-- Vercel for Next.js and Vite
-- Prisma Team for the amazing ORM
-- TailwindCSS Team for utility-first CSS
-- All open-source contributors
-
----
-
-## 📧 Contact
-
-For any questions or clarifications:
-
-- **Email:** vasudharini.s@prou.com.au, pavithra.mannar@prou.com.au
-
----
-
-## ✅ Submission Checklist
-
-### Required Deliverables:
-
-- ✅ **GitHub Repository:** Public repository with complete source code
-- ✅ **README.md:** Comprehensive documentation with setup steps, tech stack, and features
-- ✅ **Tech Stack:** React, Node.js, TypeScript, PostgreSQL, Prisma
-- ✅ **Setup Instructions:** Clear step-by-step guide included
-- ✅ **Demo Accounts:** Admin and User accounts with credentials provided
-- ✅ **Assumptions Documented:** All assumptions and design decisions listed
-
-### Track Completion:
-
-- ✅ **Track 1 (Frontend):** Fully functional React app with mock data capabilities
-- ✅ **Track 2 (Backend):** RESTful API with PostgreSQL database
-- ✅ **Track 3 (Full-Stack):** Integrated application with authentication
-
-### Bonus Features:
-
-- ✅ **All Three Tracks Completed**
-- ✅ **Authentication:** JWT-based with role-based access control
-- ✅ **Advanced UI Features:** Animations, drag-and-drop, responsive design
-- ✅ **Data Visualization:** Interactive charts and analytics dashboard
-- ✅ **Creative Features:** CSV/PDF export, bulk import, Kanban board
-- ✅ **Code Quality:** TypeScript, clean structure, proper documentation
-
-### Evaluation Criteria Met:
-
-- ✅ **Code Readability:** Clean, well-structured, and documented
-- ✅ **Design & Usability:** Modern UI with excellent UX
-- ✅ **API Design:** RESTful endpoints with proper error handling
-- ✅ **Data Model:** Normalized database schema with relationships
-- ✅ **Documentation:** Comprehensive README with examples
-- ✅ **Presentation:** Professional and polished
-
-### Originality:
-
-- ✅ **No Copied Code:** All code written from scratch
-- ✅ **Creative Solutions:** Unique implementations and features
-- ✅ **Best Practices:** Industry-standard patterns and conventions
+**Contact:** vasudharini.s@prou.com.au, pavithra.mannar@prou.com.au
 
 ---
 
