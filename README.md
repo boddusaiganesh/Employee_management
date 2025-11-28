@@ -69,6 +69,28 @@ npm run dev
 
 **Backend:** Node.js, Express.js, TypeScript, Prisma ORM, PostgreSQL, JWT, bcryptjs
 
+## 📸 Screenshots
+
+### Landing Page
+
+![Landing Page](screenshots/landing.png)
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Employee Management
+
+![Employees](screenshots/employees.png)
+
+### Task Management (Kanban Board)
+
+![Tasks](screenshots/tasks.png)
+
+### Employee Details
+
+![Employee Details](screenshots/employee-details.png)
+
 ## 🚀 Setup Instructions
 
 ### Prerequisites
