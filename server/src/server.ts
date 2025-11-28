@@ -9,7 +9,7 @@ import {errorHandler} from './middleware/errorHandler';
 const app = express();
 const PORT = config.port;
 
-// Middleware
+// Middleware - CORS Configuration
 const allowedOrigins: string[] = [
     'http://localhost:3000',
     'http://localhost:5173',
@@ -20,13 +20,24 @@ if (process.env.FRONTEND_URL) {
     allowedOrigins.push(process.env.FRONTEND_URL);
 }
 
+// Enable CORS for all routes
 app.use(cors({
-    origin: process.env.NODE_ENV === 'production'
-        ? allowedOrigins
-        : '*',
+    origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
+    exposedHeaders: ['Content-Length', 'X-Request-Id'],
+    preflightContinue: false,
+    optionsSuccessStatus: 204
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
