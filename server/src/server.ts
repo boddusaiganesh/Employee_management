@@ -10,11 +10,20 @@ const app = express();
 const PORT = config.port;
 
 // Middleware
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'https://employee-management-rcej.vercel.app',
+    process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
     origin: process.env.NODE_ENV === 'production'
-        ? [process.env.FRONTEND_URL || '*']
+        ? allowedOrigins
         : '*',
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
