@@ -45,8 +45,8 @@ const LoginNew = () => {
 
     const handleDemoLogin = async (role: 'admin' | 'user') => {
         const credentials = {
-            admin: {email: 'admin@example.com', password: 'admin123'},
-            user: {email: 'user@example.com', password: 'user123'},
+            admin: {email: 'admin@example.com', password: '9392359Abc@'},
+            user: {email: 'user@example.com', password: '9392359Abc@'},
         };
 
         setLoading(true);

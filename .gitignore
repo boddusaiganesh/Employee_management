@@ -18,6 +18,10 @@ out/
 *.db
 *.db-journal
 
+# PostgreSQL backup files
+*.sql
+*.dump
+
 # Logs
 logs
 *.log

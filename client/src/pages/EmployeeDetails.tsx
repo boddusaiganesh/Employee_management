@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useParams, useNavigate, Link} from 'react-router-dom';
-import {motion} from 'framer-motion';
+import {motion, AnimatePresence} from 'framer-motion';
 import {
     ArrowLeft,
     Mail,
@@ -19,6 +19,7 @@ import api from '../lib/api';
 import {Employee, Task} from '../types';
 import {useAuthStore} from '../store/authStore';
 import {showToast} from '../lib/toast';
+import EmployeeModal from '../components/EmployeeModal';
 
 const EmployeeDetails = () => {
     const {id} = useParams<{ id: string }>();
@@ -27,6 +28,7 @@ const EmployeeDetails = () => {
     const isAdmin = user?.role === 'admin';
     const [employee, setEmployee] = useState<Employee | null>(null);
     const [loading, setLoading] = useState(true);
+    const [showEditModal, setShowEditModal] = useState(false);
 
     useEffect(() => {
         fetchEmployee();
@@ -62,6 +64,11 @@ const EmployeeDetails = () => {
             showToast.dismiss(toastId);
             showToast.error('Failed to delete employee');
         }
+    };
+
+    const handleEditModalClose = () => {
+        setShowEditModal(false);
+        fetchEmployee();
     };
 
     if (loading) {
@@ -155,7 +162,7 @@ const EmployeeDetails = () => {
                                 <motion.button
                                     whileHover={{scale: 1.02}}
                                     whileTap={{scale: 0.98}}
-                                    onClick={() => navigate(`/dashboard/employees/${id}/edit`)}
+                                    onClick={() => setShowEditModal(true)}
                                     className="px-5 py-2.5 bg-white border-2 border-slate-300 rounded-xl font-medium text-slate-700 hover:border-indigo-400 hover:text-indigo-600 transition-all flex items-center gap-2"
                                 >
                                     <Edit className="w-4 h-4"/>
@@ -184,19 +191,19 @@ const EmployeeDetails = () => {
                     className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden mb-8"
                 >
                     {/* Gradient Header */}
-                    <div className="h-32 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 relative">
+                    <div className="h-24 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 relative">
                         <div className="absolute inset-0 bg-black/10"></div>
                     </div>
 
-                    <div className="px-8 pb-8">
+                    <div className="px-8 pb-8 pt-6">
                         {/* Avatar & Name Section */}
-                        <div className="flex flex-col md:flex-row md:items-end gap-6 -mt-16 mb-8">
+                        <div className="flex flex-col md:flex-row md:items-start gap-6 -mt-20 mb-8">
                             {/* Avatar */}
                             <motion.div
                                 initial={{scale: 0.8, opacity: 0}}
                                 animate={{scale: 1, opacity: 1}}
                                 transition={{delay: 0.2}}
-                                className="w-32 h-32 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-4xl shadow-2xl border-4 border-white relative"
+                                className="w-32 h-32 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-4xl shadow-2xl border-4 border-white relative flex-shrink-0"
                             >
                                 {employee.firstName[0]}{employee.lastName[0]}
                                 <div
@@ -206,22 +213,22 @@ const EmployeeDetails = () => {
                             </motion.div>
 
                             {/* Name & Title */}
-                            <div className="flex-1 md:pb-2">
+                            <div className="flex-1 mt-16 bg-white px-4 py-3 rounded-xl shadow-sm">
                                 <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
                                     {employee.firstName} {employee.lastName}
                                 </h1>
-                                <div className="flex flex-wrap items-center gap-3">
-                                    <div className="flex items-center gap-2 text-slate-600">
-                                        <Briefcase className="w-5 h-5"/>
+                                <div className="flex flex-wrap items-center gap-3 mb-3">
+                                    <div className="flex items-center gap-2 text-slate-700">
+                                        <Briefcase className="w-5 h-5 flex-shrink-0 text-indigo-600"/>
                                         <span className="text-lg font-medium">{employee.position}</span>
                                     </div>
                                     <span className="text-slate-300">•</span>
-                                    <div className="flex items-center gap-2 text-slate-600">
-                                        <Building2 className="w-5 h-5"/>
+                                    <div className="flex items-center gap-2 text-slate-700">
+                                        <Building2 className="w-5 h-5 flex-shrink-0 text-purple-600"/>
                                         <span className="text-lg font-medium">{employee.department}</span>
                                     </div>
                                 </div>
-                                <div className="mt-3">
+                                <div>
                                     <span
                                         className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl ${statusConfig[employee.status]?.bg} ${statusConfig[employee.status]?.text}`}>
                                         <StatusIcon className="w-4 h-4"/>
@@ -419,6 +426,16 @@ const EmployeeDetails = () => {
                     )}
                 </motion.div>
             </div>
+
+            {/* Edit Modal */}
+            <AnimatePresence>
+                {showEditModal && employee && (
+                    <EmployeeModal
+                        employee={employee}
+                        onClose={handleEditModalClose}
+                    />
+                )}
+            </AnimatePresence>
         </div>
     );
 };
