@@ -6,9 +6,8 @@ services:
     region: oregon
     plan: free
     rootDir: server
-    buildCommand: npm install && npx prisma generate && npm run build
-    startCommand: npx prisma migrate deploy && npm start
-    healthCheckPath: /
+    buildCommand: npm ci && npm run build
+    startCommand: npm run deploy
     envVars:
       - key: NODE_ENV
         value: production
@@ -19,7 +18,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: PORT
-        value: 5000
+        value: 10000
       - key: HOST
         value: 0.0.0.0
 
