@@ -192,14 +192,4 @@ EmployeeFullStack/
 - CSV import expects specific column headers
 - Pagination defaults to 10 items per page
 
-## 👨‍💻 Submission Details
 
-**Developed for:** Prou Australia Assessment  
-**Tracks Completed:** All 3 (Frontend + Backend + Full-Stack)  
-**GitHub:** https://github.com/boddusaiganesh/Employee_management
-
-**Contact:** vasudharini.s@prou.com.au, pavithra.mannar@prou.com.au
-
----
-
-**⭐ Thank you for reviewing this submission!**
