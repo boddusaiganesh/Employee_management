@@ -8,6 +8,19 @@ A modern, production-ready **Employee Management System** built with **React**, 
 enterprise-grade features including authentication, CRUD operations, real-time updates, drag-and-drop task management,
 data visualization, and export/import functionality.
 
+## 🌐 Live Demo
+
+**🎯 Frontend (Vercel):** https://employee-management-rcej.vercel.app
+
+**🎯 Backend API (Render):** https://employee-management-api-kvlr.onrender.com
+
+**Demo Accounts:**
+
+- **Admin:** `admin@example.com` / `9392359Abc@` (Full Control)
+- **User:** `user@example.com` / `9392359Abc@` (View Only)
+
+⚠️ **Note:** Backend may take 30-60 seconds to wake up on first request (free tier spins down after inactivity).
+
 ---
 
 ## 📌 Assessment Tracks Completion
