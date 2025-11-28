@@ -192,4 +192,16 @@ EmployeeFullStack/
 - CSV import expects specific column headers
 - Pagination defaults to 10 items per page
 
+Screen shots:
+
+<img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/c27057dd-c26b-481c-b060-4ef3ad66a003" />
+<img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/a5c61e0d-bb78-4a4c-8cca-4f87e8cec70f" />
+<img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/12bd22c8-34aa-49c2-b489-92b7dd2bcd1a" />
+<img width="1919" height="862" alt="image" src="https://github.com/user-attachments/assets/4df6af76-3206-48eb-bdfb-ee1565e84ab9" />
+<img width="1919" height="787" alt="image" src="https://github.com/user-attachments/assets/4393b81c-5382-427a-a33d-5ecf48be52b6" />
+
+
+
+
+
 
