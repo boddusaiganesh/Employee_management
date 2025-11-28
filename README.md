@@ -613,28 +613,9 @@ The database is pre-populated with 8 sample employees across different departmen
 4. **Monorepo structure** - Easy to manage both frontend and backend
 5. **JWT in localStorage** - Simple auth (can be moved to httpOnly cookies for better security)
 
-### Known Limitations
 
-1. SQLite doesn't support all production features (use PostgreSQL for production)
-2. File uploads not implemented (avatar field exists in schema)
-3. Forgot password requires email service integration
-4. No real-time collaboration features
 
----
 
-## 📄 License
-
-This project is developed as part of a job application assessment.
-
----
-
-## 👨‍💻 Author
-
-**Developed for Prou Australia Assessment**
-
-Submission Date: December 2024
-
----
 
 ## 🙏 Acknowledgments
 
@@ -646,12 +627,6 @@ Submission Date: December 2024
 
 ---
 
-## 📧 Contact
 
-For any questions or clarifications:
-
-- **Email:** vasudharini.s@prou.com.au, pavithra.mannar@prou.com.au
-
----
 
 **⭐ If you found this project interesting, please give it a star!**
