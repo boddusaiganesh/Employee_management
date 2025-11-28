@@ -1,0 +1,32 @@
+{
+  "name": "employee-fullstack",
+  "version": "1.0.0",
+  "description": "Full-stack Employee Management System with React + Node.js + PostgreSQL",
+  "scripts": {
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build:server": "cd server && npm run build",
+    "build:client": "cd client && npm run build",
+    "build": "npm run build:server && npm run build:client",
+    "start:server": "cd server && npm start",
+    "start:client": "cd client && npm run preview",
+    "prisma:migrate": "cd server && npm run prisma:migrate",
+    "prisma:seed": "cd server && npm run prisma:seed",
+    "prisma:studio": "cd server && npm run prisma:studio"
+  },
+  "keywords": [
+    "employee-management",
+    "fullstack",
+    "react",
+    "nodejs",
+    "typescript",
+    "prisma"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
